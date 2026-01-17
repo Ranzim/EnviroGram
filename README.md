@@ -129,6 +129,22 @@ Connections:
 ```
 
 
+## ESP32 Firmware
+
+The ESP32 microcontroller reads temperature and humidity from the DHT22 sensor and publishes to MQTT.
+
+**Development Environment:** Thonny IDE with MicroPython
+
+### Hardware Connection
+
+The DHT22 sensor is connected to **GPIO pin 2**.
+```
+Connections:
+- DHT22 VCC  → ESP32 3V3
+- DHT22 DATA → ESP32 GPIO 2
+- DHT22 GND  → ESP32 GND
+```
+
 ### Sensor Reading
 
 The following lines of code are required to read the sensor values:
@@ -166,13 +182,18 @@ from umqttsimple import MQTTClient
 ```python
 MQTT_CLIENT_ID = "Ravi"
 MQTT_BROKER = "raspi3e26.f4.htw-berlin.de"
+MQTT_PORT = 1883
 MQTT_TOPIC_TEMP = "ProIT_IoT/Ravi/temp"
 MQTT_TOPIC_HUMI = "ProIT_IoT/Ravi/humi"
 ```
 
+#### Create MQTT Client
+```python
+client = MQTTClient(MQTT_CLIENT_ID, MQTT_BROKER, port=MQTT_PORT)
+```
+
 #### Connect to Broker
 ```python
-client = MQTTClient(MQTT_CLIENT_ID, MQTT_BROKER)
 client.connect()
 ```
 
@@ -180,6 +201,22 @@ client.connect()
 ```python
 client.publish(MQTT_TOPIC_TEMP, str(mytemp))
 client.publish(MQTT_TOPIC_HUMI, str(myhumi))
+```
+
+### Main Loop
+
+The system continuously reads sensor data and publishes every 30 seconds:
+```python
+while True:
+    sensor.measure()
+    mytemp = sensor.temperature()
+    myhumi = sensor.humidity()
+    
+    client.publish(MQTT_TOPIC_TEMP, str(mytemp))
+    client.publish(MQTT_TOPIC_HUMI, str(myhumi))
+    
+    time.sleep(30)  # Wait 30 seconds before next reading
+```
 
 ---
 
@@ -189,7 +226,7 @@ In Node-Red I started with MQTT subscription to receive sensor data as shown in 
 
 **(1) MQTT Subscription**
 
-[Screenshot: MQTT input nodes]
+![MQTT Subscription](Documentation/images/01_mqtt_subscription.png)
 
 I subscribed to MQTT topics from the ESP32:
 - `ProIT_IoT/Ravi/temp` - My temperature data
@@ -203,7 +240,7 @@ The data is displayed on the dashboard as shown in (2).
 
 **(2) Dashboard Visualization**
 
-[Screenshot: Dashboard showing all components]
+![Dashboard](Documentation/images/02_dashboard.png)
 
 I created a comprehensive dashboard with:
 
@@ -212,15 +249,15 @@ I created a comprehensive dashboard with:
 - Humidity Data of ProITD (line chart showing all students)
 
 **Right Side - My Local Data:**
-- Local Temperature gauge (showing my ESP32 data: -18.9°C)
-- Local Humidity gauge (showing my ESP32 data: 89%)
+- Local Temperature gauge (showing my ESP32 data)
+- Local Humidity gauge (showing my ESP32 data)
 - Dew Point calculation display (bottom right section)
 
 In the following session I implemented dew point calculation using a function node (3).
 
 **(3) Dew Point Calculation**
 
-[Screenshot: Function node with dew point formula]
+![Dew Point Calculation](Documentation/images/03_dewpoint_calc.png)
 
 I calculated dew point using the Magnus-Tetens formula:
 ```javascript
@@ -243,7 +280,7 @@ Then I integrated Telegram bot to receive commands from users (4).
 
 **(4) Telegram Receiver**
 
-[Screenshot: Telegram receiver node]
+![Telegram Receiver](Documentation/images/04_telegram_receiver.png)
 
 I configured the Telegram receiver node to listen for bot commands like `/start` and `/status`.
 
@@ -251,7 +288,7 @@ And I created the message format to send alerts to the bot (5).
 
 **(5) Telegram Sender**
 
-[Screenshot: Telegram sender node]
+![Telegram Sender](Documentation/images/05_telegram_sender.png)
 
 I set up the Telegram sender node to send formatted alert messages including:
 - Current temperature
@@ -263,7 +300,7 @@ In the following session I added temperature threshold monitoring (6).
 
 **(6) Temperature Alert System**
 
-[Screenshot: Temperature alert flow with threshold logic]
+![Temperature Alerts](Documentation/images/06_temp_alerts.png)
 
 I implemented temperature alerts with two-level thresholds:
 ```javascript
@@ -285,11 +322,11 @@ Similarly, I implemented humidity monitoring with threshold alerts (7).
 
 **(7) Humidity Alert System**
 
-[Screenshot: Humidity alert flow]
+![Humidity Alerts](Documentation/images/07_humidity_alerts.png)
 
 I added humidity alerts that trigger when:
 - High humidity: > 70%
-- Low humidity: < 65%
+- Low humidity: < 45%
 
 The alerts include dew point information in the Telegram messages.
 
@@ -297,7 +334,7 @@ I installed a Mosquitto broker on the Raspberry Pi and configured it with the ES
 
 **(8) Local MQTT Broker**
 
-[Screenshot: MQTT configuration]
+![MQTT Broker](Documentation/images/08_mqtt_broker.png)
 
 I set up Mosquitto broker at `raspi3e26.f4.htw-berlin.de` to handle all MQTT communication between ESP32 and Node-RED.
 
@@ -305,7 +342,7 @@ Finally, I integrated all components into the complete monitoring system (9).
 
 **(9) Complete System Flow**
 
-[Screenshot: Complete Node-RED flow]
+![Complete Flow](Documentation/images/09_complete_flow.png)
 
 The complete system includes:
 - MQTT subscription (my data + all students' data)
