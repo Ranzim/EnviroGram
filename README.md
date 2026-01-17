@@ -43,8 +43,9 @@ This project implements a comprehensive IoT environmental monitoring system that
 │   ├── setup_guide.md          # Complete installation guide
 │   └── dew_point_info.md       # Dew point calculation explained
 ├── Hardware/
-│   ├── ESP32/                  # ESP32 MicroPython firmware
+│   ├── ESP32/                  # Hardware docs and wiring
 │   └── README.md               # Hardware overview
+├── uPython/                    # MicroPython boot and library files
 ├── Node-RED/
 │   ├── README.md               # Node-RED overview
 │   └── telegram_alert_flow.json # Complete Node-RED flow
@@ -61,7 +62,8 @@ This project implements a comprehensive IoT environmental monitoring system that
 ## Directory Navigation
 
 *   📂 [**Documentation**](Documentation/README.md) - Images, presentations, and guides.
-*   📂 [**Hardware**](Hardware/README.md) - ESP32 firmware and wiring.
+*   📂 [**Hardware**](Hardware/README.md) - Wiring and physical setup.
+*   📂 [**uPython**](uPython/README.md) - ESP32 MicroPython firmware.
 *   📂 [**Node-RED**](Node-RED/README.md) - Flows and dashboard configuration.
 *   📂 [**RaspberryPi**](RaspberryPi/README.md) - Server setup and configuration.
 *   📂 [**Tests**](Tests/README.md) - Testing and verification.

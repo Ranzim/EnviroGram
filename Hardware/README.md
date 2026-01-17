@@ -2,4 +2,5 @@
 This folder contains information about the hardware components and wiring.
 
 ## Contents
-- `ESP32/`: MicroPython firmware and wiring diagrams for the ESP32.
+- `ESP32/`: Hardware-specific documentation and wiring diagrams.
+*Note: MicroPython firmware has been moved to the top-level `/uPython` folder.*
