@@ -36,18 +36,35 @@ This project implements a comprehensive IoT environmental monitoring system that
 
 ```
 .
-├── Documentation
+├── Documentation/
+│   ├── images/                 # Project screenshots and diagrams
+│   ├── presentation/           # Presentation slides
+│   ├── README.md               # Documentation overview
 │   ├── setup_guide.md          # Complete installation guide
 │   └── dew_point_info.md       # Dew point calculation explained
-├── Hardware
-│   └── ESP32
-│      
-├── Node-Red
+├── Hardware/
+│   ├── ESP32/                  # ESP32 MicroPython firmware
+│   └── README.md               # Hardware overview
+├── Node-RED/
+│   ├── README.md               # Node-RED overview
 │   └── telegram_alert_flow.json # Complete Node-RED flow
-├── RaspberryPi
+├── RaspberryPi/
+│   ├── README.md               # Raspberry Pi overview
 │   └── mqtt_setup.md           # Mosquitto broker configuration
+├── Tests/
+│   └── README.md               # Test procedures
 └── README.md
 ```
+
+---
+
+## Directory Navigation
+
+*   📂 [**Documentation**](Documentation/README.md) - Images, presentations, and guides.
+*   📂 [**Hardware**](Hardware/README.md) - ESP32 firmware and wiring.
+*   📂 [**Node-RED**](Node-RED/README.md) - Flows and dashboard configuration.
+*   📂 [**RaspberryPi**](RaspberryPi/README.md) - Server setup and configuration.
+*   📂 [**Tests**](Tests/README.md) - Testing and verification.
 
 ---
 
