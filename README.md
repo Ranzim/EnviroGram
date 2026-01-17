@@ -339,7 +339,7 @@ I set up Mosquitto broker at `raspi3e26.f4.htw-berlin.de` to handle all MQTT com
 ![Complete Flow](Documentation/images/09_complete_flow.png)
 
 The complete system combines MQTT subscription, dashboard visualization, dew point calculation, temperature and humidity alerts, and Telegram bot integration for remote monitoring.
----
+
 ## Acknowledgments
 
 - **Course:** ProIT - IoT Project (WS2526)
