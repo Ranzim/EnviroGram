@@ -302,55 +302,43 @@ In the following session I added temperature threshold monitoring (6).
 
 ![Temperature Alerts](Documentation/images/06_temp_alerts.png)
 
-I implemented temperature alerts with two-level thresholds:
-```javascript
-var temp = msg.payload.temperature;
+I implemented temperature monitoring with two-level thresholds:
 
-// High threshold: 28°C, Low threshold: 26°C
-if (temp > 28 && !context.get('alertActive')) {
-    context.set('alertActive', true);
-    msg.payload = "⚠️ High temperature: " + temp + "°C";
-    return msg;
-} else if (temp < 26 && context.get('alertActive')) {
-    context.set('alertActive', false);
-    msg.payload = "✅ Temperature normal: " + temp + "°C";
-    return msg;
-}
-```
+**Threshold values:**
+- High temperature: **> 20°C**
+- Low temperature: **< 15°C**
 
-Similarly, I implemented humidity monitoring with threshold alerts (7).
+The system uses switch nodes to check temperature range and activates alerts when thresholds are exceeded. Formatted messages are sent via Telegram when temperature goes too high or too low.
 
 **(7) Humidity Alert System**
 
 ![Humidity Alerts](Documentation/images/07_humidity_alerts.png)
 
-I added humidity alerts that trigger when:
-- High humidity: > 70%
-- Low humidity: < 45%
+Similarly, I implemented humidity monitoring with threshold checks:
+
+**Threshold values:**
+- High humidity: **> 42%**
+- Low humidity: **< 30%**
 
 The alerts include dew point information in the Telegram messages.
-
-I installed a Mosquitto broker on the Raspberry Pi and configured it with the ESP32 (8).
 
 **(8) Local MQTT Broker**
 
 ![MQTT Broker](Documentation/images/08_mqtt_broker.png)
 
-I set up Mosquitto broker at `raspi3e26.f4.htw-berlin.de` to handle all MQTT communication between ESP32 and Node-RED.
+I set up Mosquitto broker at `raspi3e26.f4.htw-berlin.de` to handle all MQTT communication.
 
-Finally, I integrated all components into the complete monitoring system (9).
+**MQTT Topics:**
+- `ProIT_IoT/Ravi/temp` - My temperature data
+- `ProIT_IoT/Ravi/humi` - My humidity data
+- `ProIT_IoT/+/temp` - All students' temperature
+- `ProIT_IoT/+/humi` - All students' humidity
 
 **(9) Complete System Flow**
 
 ![Complete Flow](Documentation/images/09_complete_flow.png)
 
-The complete system includes:
-- MQTT subscription (my data + all students' data)
-- Dashboard with shared charts and local gauges
-- Dew point calculation and display
-- Temperature and humidity alert systems
-- Telegram bot integration for remote monitoring
-
+The complete system combines MQTT subscription, dashboard visualization, dew point calculation, temperature and humidity alerts, and Telegram bot integration for remote monitoring.
 ---
 ## Acknowledgments
 
