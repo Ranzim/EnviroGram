@@ -85,8 +85,8 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 4. **Analysis:** Calculates **Dew Point**, **Absolute Humidity**, and **Saturation Depression**.
 5. **Visualization:** Dashboard displays live gauges, historical trends, and complex environmental metrics.
 6. **Reporting:** 
-   - ⚡ **Immediate:** Separate alerts sent to Telegram as soon as temp/humi thresholds are breached.
-   - 📅 **Daily:** A consolidated "Environmental Analysis" report sent once per day.
+   - **Immediate:** Separate alerts sent to Telegram as soon as temp/humi thresholds are breached.
+   - **Daily:** A consolidated "Environmental Analysis" report sent once per day.
 
 
 ---
@@ -99,24 +99,15 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
    - Real-time **Absolute Humidity** & **Saturation Depression** monitoring
 
 ✅ **Smart Alerting System**
-   - 🌡️ **Immediate Temp Alerts:** High (>25°C) or Low (<10°C) notifications.
-   - 💧 **Immediate Humi Alerts:** High (>65%) or Low (<30%) notifications.
-   - 📊 **Scheduled Summary:** Detailed "Environmental Analysis" report delivered **once per day** to prevent spam.
+   - **Immediate Temp Alerts:** High (>25°C) or Low (<10°C) notifications.
+   - **Immediate Humi Alerts:** High (>65%) or Low (<30%) notifications.
+   - **Scheduled Summary:** Detailed "Environmental Analysis" report delivered **once per day** to prevent spam.
    - **Bot Command Suite:** Control your system via Telegram (/start, /status, /help).
 
 ✅ **Interactive Dashboard**
-   - Modern Glassmorphism UI (using HTML/CSS templates).
+   - Glassmorphism UI (using HTML/CSS templates).
    - Live visual gauges and historical data charting.
    - Mobile-responsive dashboard accessible via the local network.
-
-✅ **Advanced Logic & Management**
-   - Smart threshold state-management to prevent repetitive notification spam.
-   - Fully configurable alert limits for both Temperature and Humidity.
-
-✅ **Self-Hosted Infrastructure**
-   - Local MQTT broker on Raspberry Pi
-   - No cloud dependency for core functionality
-   
 
 ---
 
