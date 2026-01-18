@@ -21,7 +21,7 @@ This project implements a comprehensive IoT environmental monitoring system that
 ### Hardware
 * **Microcontroller:** ESP32 Development Board
 * **Sensor:** DHT22 Temperature & Humidity Sensor
-* **Processing Unit:** Raspberry Pi 3
+* **Processing Unit:** Raspberry Pi 
 * **Power Supply:** USB 5V
 
 ### Software
@@ -81,7 +81,7 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 ```
 
 **Data Flow:**
-1. ESP32 reads temperature and humidity from DHT22 every 5 seconds
+1. ESP32 reads temperature and humidity from DHT22 
 2. Data is published to MQTT topics on Raspberry Pi
 3. Node-RED subscribes to MQTT topics and processes data
 4. Dew point is calculated using Magnus-Tetens formula
@@ -112,10 +112,6 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
    - -Smart threshold system prevents alert spam
    - Separate high/low thresholds
    - Configurable temperature and humidity limits
-
-✅ **Self-Hosted Infrastructure**
-   - Local MQTT broker on Raspberry Pi
-   - No cloud dependency for core functionality
    
 
 ---
