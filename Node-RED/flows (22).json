@@ -1,0 +1,1600 @@
+[
+    {
+        "id": "2d884c84e1fa7c76",
+        "type": "tab",
+        "label": "Temp Humidity Sensor - Ravi",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "99fcf0cfd939539f",
+        "type": "group",
+        "z": "2d884c84e1fa7c76",
+        "name": "MQTT Climate Streams",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0861f586c76f4554",
+            "54d1dcaa3cf66d89",
+            "1400b4f5646e5ad5",
+            "23461f76e9b4e49c",
+            "d7678c488a9d9879",
+            "eb0745f90563a1c9",
+            "4f13d449a4c6e232",
+            "f07da6b57dc58937",
+            "c151bfccc715a8f7",
+            "326a82308644983a",
+            "4bd025fac65de420"
+        ],
+        "x": 134,
+        "y": 479,
+        "w": 592,
+        "h": 502
+    },
+    {
+        "id": "1e179a9f4d9ca65a",
+        "type": "group",
+        "z": "2d884c84e1fa7c76",
+        "name": "Publish  Local data ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "9a647984fd4d5ea4",
+            "fac0c014592d3f4c",
+            "964c8c63387afa2f"
+        ],
+        "x": 974,
+        "y": 539,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "a52698436b854af4",
+        "type": "group",
+        "z": "2d884c84e1fa7c76",
+        "name": "Temperature Alert to Telegram ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "66b38a6b85214f00",
+            "dcf63922b629fb6d",
+            "ad50ba8390fd8f53",
+            "e5e65411c4ad9ec6",
+            "a9f92db9bd661ce8",
+            "bf9879df33f57612",
+            "6a60cb3fb5886ffc",
+            "f1a973be8efcaa15",
+            "43dfb285707a5db4",
+            "31b672ddd1b01e81",
+            "d3af231fb7047b4a",
+            "778ac81c4239d389",
+            "58531b960f20fdf6"
+        ],
+        "x": 154,
+        "y": 1019,
+        "w": 1612,
+        "h": 282
+    },
+    {
+        "id": "93e652bbe319df1a",
+        "type": "group",
+        "z": "2d884c84e1fa7c76",
+        "name": "Humidity Alert to Telegram ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a3c3a789101a8265",
+            "c8efabe309948676",
+            "5535c1f9e31157b8",
+            "ff73f76b09e41813",
+            "7ed20393332bd34e",
+            "ac1428d343aa9099",
+            "ae29615e52268833",
+            "9f6712183a02033a",
+            "8c2eb9aee65e4cd6",
+            "d924f326be543c0a",
+            "0fd2f5bf9f8e4a21",
+            "7322698f25479a85",
+            "da4c870adf243efe"
+        ],
+        "x": 154,
+        "y": 1479,
+        "w": 1612,
+        "h": 222
+    },
+    {
+        "id": "41750d5b843b552b",
+        "type": "group",
+        "z": "2d884c84e1fa7c76",
+        "name": "Environmental Analysis",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e5a5bef35da4f53b",
+            "4188cc7b3c3ab2b0",
+            "d27a162fe4ce34c5",
+            "0e661f14a1a3073c",
+            "b94c4988e8310d16",
+            "cdd4bf176c1c09d1",
+            "1daa655366181c53",
+            "5080149c4ee27a4c",
+            "4baec7562e3e981c",
+            "aa99db46e03eeb47",
+            "334761ee0e541958"
+        ],
+        "x": 94,
+        "y": 1839,
+        "w": 1642,
+        "h": 242
+    },
+    {
+        "id": "97ae5b9e5b67363a",
+        "type": "group",
+        "z": "2d884c84e1fa7c76",
+        "name": "send alert ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e5609b80b0a0a6f5",
+            "bb5e8ca91ca640b6",
+            "31a9e6a51f9a4e93",
+            "16ac7a5f2a1fae76"
+        ],
+        "x": 964,
+        "y": 799,
+        "w": 582,
+        "h": 162
+    },
+    {
+        "id": "0861f586c76f4554",
+        "type": "ui_gauge",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "group": "c78c22a0a1fa2ab5",
+        "order": 1,
+        "width": 4,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Local Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "+50",
+        "colors": [
+            "#10c00a",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "26",
+        "diff": false,
+        "className": "rv-glass-card",
+        "x": 550,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "54d1dcaa3cf66d89",
+        "type": "ui_gauge",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "group": "c78c22a0a1fa2ab5",
+        "order": 2,
+        "width": 4,
+        "height": 5,
+        "gtype": "wave",
+        "title": "Local Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "rv-glass-card",
+        "x": 540,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "1400b4f5646e5ad5",
+        "type": "mqtt in",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "topic": "ProIT_IoT/+/temp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "e058b1e9d018a77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 840,
+        "wires": [
+            [
+                "c151bfccc715a8f7"
+            ]
+        ]
+    },
+    {
+        "id": "23461f76e9b4e49c",
+        "type": "mqtt in",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "topic": "ProIT_IoT/+/humi",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "e058b1e9d018a77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 940,
+        "wires": [
+            [
+                "d7678c488a9d9879"
+            ]
+        ]
+    },
+    {
+        "id": "d7678c488a9d9879",
+        "type": "ui_chart",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "group": "2b985b037cf3993c",
+        "order": 3,
+        "width": 17,
+        "height": 6,
+        "label": "Humidity Data of ProITD",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "rv-glass-card",
+        "x": 570,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb0745f90563a1c9",
+        "type": "link out",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "myHumiOut",
+        "mode": "link",
+        "links": [
+            "68831967e78e253b",
+            "8ee47a685c8112b0",
+            "5599e8261871cfe5",
+            "9e822dc5cb988e99",
+            "e5609b80b0a0a6f5",
+            "7322698f25479a85",
+            "d27a162fe4ce34c5"
+        ],
+        "x": 625,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "4f13d449a4c6e232",
+        "type": "link out",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "myTempOut",
+        "mode": "link",
+        "links": [
+            "68831967e78e253b",
+            "8ee47a685c8112b0",
+            "5599e8261871cfe5",
+            "9e822dc5cb988e99",
+            "e5609b80b0a0a6f5",
+            "43dfb285707a5db4",
+            "4188cc7b3c3ab2b0"
+        ],
+        "x": 625,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f07da6b57dc58937",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9a647984fd4d5ea4",
+        "type": "mqtt in",
+        "z": "2d884c84e1fa7c76",
+        "g": "1e179a9f4d9ca65a",
+        "name": "",
+        "topic": "ProIT_IoT/Ravi/temp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "bfa9e7d93e98130d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1090,
+        "y": 580,
+        "wires": [
+            [
+                "fac0c014592d3f4c"
+            ]
+        ]
+    },
+    {
+        "id": "fac0c014592d3f4c",
+        "type": "mqtt out",
+        "z": "2d884c84e1fa7c76",
+        "g": "1e179a9f4d9ca65a",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e058b1e9d018a77f",
+        "x": 1450,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "964c8c63387afa2f",
+        "type": "mqtt in",
+        "z": "2d884c84e1fa7c76",
+        "g": "1e179a9f4d9ca65a",
+        "name": "",
+        "topic": "ProIT_IoT/Ravi/humi",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bfa9e7d93e98130d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1090,
+        "y": 680,
+        "wires": [
+            [
+                "fac0c014592d3f4c"
+            ]
+        ]
+    },
+    {
+        "id": "c151bfccc715a8f7",
+        "type": "ui_chart",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "group": "2b985b037cf3993c",
+        "order": 2,
+        "width": 17,
+        "height": 5,
+        "label": "Temperature Data of ProITD",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "rv-glass-card",
+        "x": 580,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5609b80b0a0a6f5",
+        "type": "link in",
+        "z": "2d884c84e1fa7c76",
+        "g": "97ae5b9e5b67363a",
+        "name": "toTelegram",
+        "links": [
+            "31b672ddd1b01e81",
+            "4f13d449a4c6e232",
+            "eb0745f90563a1c9",
+            "da4c870adf243efe",
+            "aa99db46e03eeb47"
+        ],
+        "x": 1005,
+        "y": 840,
+        "wires": [
+            [
+                "31a9e6a51f9a4e93"
+            ]
+        ]
+    },
+    {
+        "id": "bb5e8ca91ca640b6",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "97ae5b9e5b67363a",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "66b38a6b85214f00",
+        "type": "switch",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Check Tem Range",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "repair": false,
+        "outputs": 3,
+        "x": 430,
+        "y": 1180,
+        "wires": [
+            [
+                "dcf63922b629fb6d"
+            ],
+            [
+                "ad50ba8390fd8f53"
+            ],
+            [
+                "f1a973be8efcaa15"
+            ]
+        ]
+    },
+    {
+        "id": "dcf63922b629fb6d",
+        "type": "switch",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Check High Temp Alarm",
+        "property": "tempHigh",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 1160,
+        "wires": [
+            [
+                "e5e65411c4ad9ec6"
+            ]
+        ]
+    },
+    {
+        "id": "ad50ba8390fd8f53",
+        "type": "switch",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Check Low  Temp Alarm",
+        "property": "tempLow",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 1220,
+        "wires": [
+            [
+                "a9f92db9bd661ce8"
+            ]
+        ]
+    },
+    {
+        "id": "e5e65411c4ad9ec6",
+        "type": "string",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Add High Temp Warning",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "°C 🔥 High temperature alert!"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1010,
+        "y": 1140,
+        "wires": [
+            [
+                "bf9879df33f57612"
+            ]
+        ]
+    },
+    {
+        "id": "a9f92db9bd661ce8",
+        "type": "string",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Add Low Temp Warning",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "°C ❄️ Low temperature alert!"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1030,
+        "y": 1220,
+        "wires": [
+            [
+                "6a60cb3fb5886ffc"
+            ]
+        ]
+    },
+    {
+        "id": "bf9879df33f57612",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Set High ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempHigh",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "x": 1250,
+        "y": 1140,
+        "wires": [
+            [
+                "58531b960f20fdf6"
+            ]
+        ]
+    },
+    {
+        "id": "6a60cb3fb5886ffc",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Set Low ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempLow",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "x": 1270,
+        "y": 1220,
+        "wires": [
+            [
+                "58531b960f20fdf6"
+            ]
+        ]
+    },
+    {
+        "id": "f1a973be8efcaa15",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Reset Alarms",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempHigh",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "tempLow",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "x": 430,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3c3a789101a8265",
+        "type": "switch",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Check Humi  Alarm",
+        "property": "humiHigh",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "repair": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 1540,
+        "wires": [
+            [
+                "7ed20393332bd34e"
+            ]
+        ]
+    },
+    {
+        "id": "c8efabe309948676",
+        "type": "switch",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Check Humi Range",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "20",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "repair": false,
+        "outputs": 3,
+        "x": 430,
+        "y": 1560,
+        "wires": [
+            [
+                "a3c3a789101a8265"
+            ],
+            [
+                "5535c1f9e31157b8"
+            ],
+            [
+                "ff73f76b09e41813"
+            ]
+        ]
+    },
+    {
+        "id": "5535c1f9e31157b8",
+        "type": "switch",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Check Low Humi Alarm",
+        "property": "humiLow",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 1600,
+        "wires": [
+            [
+                "ac1428d343aa9099"
+            ]
+        ]
+    },
+    {
+        "id": "ff73f76b09e41813",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Reset Alarms",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humiHigh",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "humiLow",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "x": 430,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ed20393332bd34e",
+        "type": "string",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Add High Humi Warning",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "% 💧 High humidity alert!"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 970,
+        "y": 1540,
+        "wires": [
+            [
+                "ae29615e52268833"
+            ]
+        ]
+    },
+    {
+        "id": "ac1428d343aa9099",
+        "type": "string",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Add Low Humi Warning",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": " % 💨 Low humidity alert!"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 990,
+        "y": 1600,
+        "wires": [
+            [
+                "9f6712183a02033a"
+            ]
+        ]
+    },
+    {
+        "id": "ae29615e52268833",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Set High ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humiHigh",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "x": 1250,
+        "y": 1540,
+        "wires": [
+            [
+                "8c2eb9aee65e4cd6",
+                "d924f326be543c0a"
+            ]
+        ]
+    },
+    {
+        "id": "9f6712183a02033a",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Set Low ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humiLow",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "x": 1250,
+        "y": 1600,
+        "wires": [
+            [
+                "8c2eb9aee65e4cd6",
+                "0fd2f5bf9f8e4a21"
+            ]
+        ]
+    },
+    {
+        "id": "8c2eb9aee65e4cd6",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "Format Telegram",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "7372731857",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "x": 1510,
+        "y": 1580,
+        "wires": [
+            [
+                "da4c870adf243efe"
+            ]
+        ]
+    },
+    {
+        "id": "d924f326be543c0a",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1520,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "0fd2f5bf9f8e4a21",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1520,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "43dfb285707a5db4",
+        "type": "link in",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "TempIn1",
+        "links": [
+            "4f13d449a4c6e232"
+        ],
+        "x": 195,
+        "y": 1180,
+        "wires": [
+            [
+                "66b38a6b85214f00",
+                "778ac81c4239d389"
+            ]
+        ]
+    },
+    {
+        "id": "7322698f25479a85",
+        "type": "link in",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "HumiIn",
+        "links": [
+            "eb0745f90563a1c9"
+        ],
+        "x": 195,
+        "y": 1560,
+        "wires": [
+            [
+                "c8efabe309948676"
+            ]
+        ]
+    },
+    {
+        "id": "31b672ddd1b01e81",
+        "type": "link out",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "e5609b80b0a0a6f5"
+        ],
+        "x": 1715,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "31a9e6a51f9a4e93",
+        "type": "telegram sender",
+        "z": "2d884c84e1fa7c76",
+        "g": "97ae5b9e5b67363a",
+        "name": "Send Telegram",
+        "bot": "28406a6f6bdd49a2",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1210,
+        "y": 840,
+        "wires": [
+            [
+                "bb5e8ca91ca640b6"
+            ]
+        ]
+    },
+    {
+        "id": "d3af231fb7047b4a",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "778ac81c4239d389",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "da4c870adf243efe",
+        "type": "link out",
+        "z": "2d884c84e1fa7c76",
+        "g": "93e652bbe319df1a",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "e5609b80b0a0a6f5"
+        ],
+        "x": 1725,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "e5a5bef35da4f53b",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "Tag Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 1900,
+        "wires": [
+            [
+                "b94c4988e8310d16"
+            ]
+        ]
+    },
+    {
+        "id": "4188cc7b3c3ab2b0",
+        "type": "link in",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "TempIn1",
+        "links": [
+            "4f13d449a4c6e232"
+        ],
+        "x": 135,
+        "y": 1900,
+        "wires": [
+            [
+                "e5a5bef35da4f53b"
+            ]
+        ]
+    },
+    {
+        "id": "d27a162fe4ce34c5",
+        "type": "link in",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "HumiIn",
+        "links": [
+            "eb0745f90563a1c9"
+        ],
+        "x": 145,
+        "y": 2000,
+        "wires": [
+            [
+                "0e661f14a1a3073c"
+            ]
+        ]
+    },
+    {
+        "id": "0e661f14a1a3073c",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "Tag Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "humidity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 2000,
+        "wires": [
+            [
+                "b94c4988e8310d16"
+            ]
+        ]
+    },
+    {
+        "id": "b94c4988e8310d16",
+        "type": "join",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "Combine Temp & Humi",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "3",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 680,
+        "y": 1960,
+        "wires": [
+            [
+                "cdd4bf176c1c09d1",
+                "1daa655366181c53"
+            ]
+        ]
+    },
+    {
+        "id": "cdd4bf176c1c09d1",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "1daa655366181c53",
+        "type": "function",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "Calculate Dew Point",
+        "func": "// Get temperature and humidity from input\nvar temp = msg.payload.temperature;\nvar humidity = msg.payload.humidity;\n\n// Check if data is valid\nif (typeof temp !== 'number' || typeof humidity !== 'number') {\n    node.warn(\"Invalid data\");\n    return null;\n}\n\n// Calculate Dew Point\nvar a = 17.27;\nvar b = 237.7;\nvar alpha = ((a * temp) / (b + temp)) + Math.log(humidity / 100.0);\nvar dewPoint = (b * alpha) / (a - alpha);\n\n// Calculate Absolute Humidity\nvar e = Math.exp((17.67 * temp) / (temp + 243.5));\nvar absoluteHumidity = (6.112 * e * humidity) / (461.5 * (temp + 273.15));\n\n// Calculate Depression\nvar dewPointDepression = temp - dewPoint;\n\n// Get Timestamp\nvar now = new Date();\nvar timestamp = now.toLocaleString('en-US', {\n    year: 'numeric',\n    month: '2-digit',\n    day: '2-digit',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit',\n    hour12: false\n});\n\nvar isoTimestamp = now.toISOString();\n\n// ============================================================================\n// OUTPUT: SEND OBJECT TO DASHBOARD UI ONLY\n// ============================================================================\n// No Telegram formatting - just raw data for dashboard gauges\n\nmsg.payload = {\n    temperature: parseFloat(temp.toFixed(2)),\n    humidity: parseFloat(humidity.toFixed(2)),\n    dewPoint: parseFloat(dewPoint.toFixed(2)),\n    absoluteHumidity: parseFloat(absoluteHumidity.toFixed(2)),\n    dewPointDepression: parseFloat(dewPointDepression.toFixed(2)),\n    timestamp: timestamp,\n    isoTimestamp: isoTimestamp,\n    location: \"Berlin, Germany\"\n};\n\n// Send to dashboard\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 1960,
+        "wires": [
+            [
+                "5080149c4ee27a4c",
+                "334761ee0e541958",
+                "4baec7562e3e981c"
+            ]
+        ]
+    },
+    {
+        "id": "5080149c4ee27a4c",
+        "type": "debug",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "4baec7562e3e981c",
+        "type": "ui_template",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "group": "c78c22a0a1fa2ab5",
+        "name": "",
+        "order": 3,
+        "width": 8,
+        "height": 9,
+        "format": "<div style=\"\n    width: 100%;\n    height: 100%;\n    padding: 15px;\n    background: rgba(30, 60, 90, 0.4);\n    backdrop-filter: blur(10px);\n    -webkit-backdrop-filter: blur(10px);\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    border-radius: 16px;\n    color: white;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);\n    display: flex;\n    flex-direction: column;\n    box-sizing: border-box;\n    gap: 10px;\n    overflow: hidden;\n\">\n    <!-- Header with Location -->\n    <div style=\"\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding-bottom: 8px;\n        border-bottom: 1px solid rgba(255, 255, 255, 0.1);\n        flex-shrink: 0;\n        min-height: 30px;\n    \">\n        <div style=\"\n            font-size: 10px;\n            font-weight: 600;\n            letter-spacing: 1.5px;\n            text-transform: uppercase;\n            color: #a0bae0;\n        \">\n            <span style=\"font-size: 18px; margin-right: 8px;\">💧</span>Environmental Analysis\n        </div>\n        <div style=\"\n            font-size: 9px;\n            color: #80b0d0;\n            font-weight: 500;\n        \">\n            📍 {{msg.payload.location}}\n        </div>\n    </div>\n\n    <!-- Main Content Grid - Flexible Height -->\n    <div style=\"\n        display: grid;\n        grid-template-columns: 1fr 1fr;\n        grid-template-rows: auto auto;\n        gap: 10px;\n        flex: 1;\n        min-height: 0;\n    \">\n        <!-- Temperature Card -->\n        <div style=\"\n            background: rgba(255, 107, 107, 0.15);\n            border: 1px solid rgba(255, 107, 107, 0.25);\n            backdrop-filter: blur(10px);\n            padding: 12px;\n            border-radius: 10px;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            min-height: 0;\n        \">\n            <div style=\"\n                font-size: 7px;\n                font-weight: 600;\n                letter-spacing: 0.5px;\n                text-transform: uppercase;\n                color: #ff9999;\n                margin-bottom: 5px;\n                overflow: hidden;\n                text-overflow: ellipsis;\n            \">\n                <span style=\"font-size: 16px; margin-right: 5px;\">🌡️</span>Temperature\n            </div>\n            <div style=\"\n                font-size: clamp(20px, 4vw, 36px);\n                font-weight: bold;\n                color: #ff6b6b;\n                line-height: 1;\n                overflow: hidden;\n            \">\n                {{msg.payload.temperature}}<span style=\"font-size: clamp(12px, 2vw, 20px);\">°C</span>\n            </div>\n        </div>\n\n        <!-- Humidity Card -->\n        <div style=\"\n            background: rgba(78, 205, 196, 0.15);\n            border: 1px solid rgba(78, 205, 196, 0.25);\n            backdrop-filter: blur(10px);\n            padding: 12px;\n            border-radius: 10px;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            min-height: 0;\n        \">\n            <div style=\"\n                font-size: 7px;\n                font-weight: 600;\n                letter-spacing: 0.5px;\n                text-transform: uppercase;\n                color: #80d8d0;\n                margin-bottom: 5px;\n                overflow: hidden;\n                text-overflow: ellipsis;\n            \">\n                <span style=\"font-size: 16px; margin-right: 5px;\">💧</span>Humidity\n            </div>\n            <div style=\"\n                font-size: clamp(20px, 4vw, 36px);\n                font-weight: bold;\n                color: #4ecdc4;\n                line-height: 1;\n                overflow: hidden;\n            \">\n                {{msg.payload.humidity}}<span style=\"font-size: clamp(12px, 2vw, 20px);\">%</span>\n            </div>\n        </div>\n\n        <!-- Dew Point Card -->\n        <div style=\"\n            background: rgba(96, 165, 250, 0.15);\n            border: 1px solid rgba(96, 165, 250, 0.25);\n            backdrop-filter: blur(10px);\n            padding: 12px;\n            border-radius: 10px;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            min-height: 0;\n        \">\n            <div style=\"\n                font-size: 7px;\n                font-weight: 600;\n                letter-spacing: 0.5px;\n                text-transform: uppercase;\n                color: #90caf9;\n                margin-bottom: 5px;\n                overflow: hidden;\n                text-overflow: ellipsis;\n            \">\n                <span style=\"font-size: 16px; margin-right: 5px;\">❄️</span>Dew Point\n            </div>\n            <div style=\"\n                font-size: clamp(20px, 4vw, 36px);\n                font-weight: bold;\n                color: #60a5fa;\n                line-height: 1;\n                overflow: hidden;\n            \">\n                {{msg.payload.dewPoint}}<span style=\"font-size: clamp(12px, 2vw, 20px);\">°C</span>\n            </div>\n        </div>\n\n        <!-- Absolute Humidity Card -->\n        <div style=\"\n            background: rgba(139, 92, 246, 0.15);\n            border: 1px solid rgba(139, 92, 246, 0.25);\n            backdrop-filter: blur(10px);\n            padding: 12px;\n            border-radius: 10px;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            min-height: 0;\n        \">\n            <div style=\"\n                font-size: 7px;\n                font-weight: 600;\n                letter-spacing: 0.5px;\n                text-transform: uppercase;\n                color: #d8b4fe;\n                margin-bottom: 5px;\n                overflow: hidden;\n                text-overflow: ellipsis;\n            \">\n                <span style=\"font-size: 16px; margin-right: 5px;\">💨</span>Abs. Humidity\n            </div>\n            <div style=\"\n                font-size: clamp(20px, 4vw, 36px);\n                font-weight: bold;\n                color: #a78bfa;\n                line-height: 1;\n                overflow: hidden;\n            \">\n                {{msg.payload.absoluteHumidity}}<span style=\"font-size: clamp(10px, 1.5vw, 16px);\">g/m³</span>\n            </div>\n        </div>\n    </div>\n\n    <!-- Depression Card (Full Width) -->\n    <div style=\"\n        background: rgba(251, 191, 36, 0.15);\n        border: 1px solid rgba(251, 191, 36, 0.25);\n        backdrop-filter: blur(10px);\n        padding: 12px;\n        border-radius: 10px;\n        flex-shrink: 0;\n        min-height: 50px;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n    \">\n        <div style=\"\n            font-size: 7px;\n            font-weight: 600;\n            letter-spacing: 0.5px;\n            text-transform: uppercase;\n            color: #fcd34d;\n            margin-bottom: 5px;\n            white-space: nowrap;\n            overflow: hidden;\n            text-overflow: ellipsis;\n        \">\n            <span style=\"font-size: 16px; margin-right: 5px;\">🌡️</span>Depression (Saturation Distance)\n        </div>\n        <div style=\"\n            font-size: clamp(20px, 4vw, 36px);\n            font-weight: bold;\n            color: #fbbf24;\n            line-height: 1;\n        \">\n            {{msg.payload.dewPointDepression}}<span style=\"font-size: clamp(12px, 2vw, 20px);\">°C</span>\n        </div>\n    </div>\n\n    <!-- Status Bar with Timestamp -->\n    <div style=\"\n        display: flex;\n        flex-direction: column;\n        gap: 8px;\n        flex-shrink: 0;\n    \">\n        <!-- Status -->\n        <div style=\"\n            background: rgba(255, 255, 255, 0.05);\n            border: 1px solid rgba(255, 255, 255, 0.1);\n            backdrop-filter: blur(10px);\n            padding: 10px;\n            border-radius: 10px;\n            text-align: center;\n            font-size: clamp(8px, 2vw, 11px);\n            font-weight: 600;\n            min-height: 24px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n        \">\n            <span ng-if=\"msg.payload.dewPoint < 0\">❄️ Very Dry</span>\n            <span ng-if=\"msg.payload.dewPoint >= 0 && msg.payload.dewPoint < 10\">🌤️ Dry</span>\n            <span ng-if=\"msg.payload.dewPoint >= 10 && msg.payload.dewPoint < 15\">😊 Comfortable</span>\n            <span ng-if=\"msg.payload.dewPoint >= 15 && msg.payload.dewPoint < 20\">💦 Humid</span>\n            <span ng-if=\"msg.payload.dewPoint >= 20\">🌧️ Very Humid</span>\n        </div>\n\n        <!-- Last Update Timestamp -->\n        <div style=\"\n            background: rgba(255, 255, 255, 0.05);\n            border: 1px solid rgba(255, 255, 255, 0.1);\n            backdrop-filter: blur(10px);\n            padding: 8px;\n            border-radius: 10px;\n            text-align: center;\n            font-size: clamp(7px, 1.5vw, 9px);\n            color: #90a8c0;\n            font-weight: 500;\n            min-height: 20px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n        \">\n            🕐 Last Update: {{msg.payload.timestamp}}\n        </div>\n    </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1260,
+        "y": 2040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "326a82308644983a",
+        "type": "mqtt in",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "",
+        "topic": "ProIT_IoT/Ravi/temp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "bfa9e7d93e98130d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "0861f586c76f4554",
+                "4f13d449a4c6e232",
+                "f07da6b57dc58937"
+            ]
+        ]
+    },
+    {
+        "id": "4bd025fac65de420",
+        "type": "mqtt in",
+        "z": "2d884c84e1fa7c76",
+        "g": "99fcf0cfd939539f",
+        "name": "ProIT_IoT/Ravi/humi",
+        "topic": "ProIT_IoT/Ravi/humi",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "bfa9e7d93e98130d",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 250,
+        "y": 720,
+        "wires": [
+            [
+                "eb0745f90563a1c9",
+                "f07da6b57dc58937",
+                "54d1dcaa3cf66d89"
+            ]
+        ]
+    },
+    {
+        "id": "16ac7a5f2a1fae76",
+        "type": "ui_template",
+        "z": "2d884c84e1fa7c76",
+        "g": "97ae5b9e5b67363a",
+        "group": "2b985b037cf3993c",
+        "name": "Dashboard Title",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"\n  text-align: center;\n  padding: 30px 20px;\n  background: linear-gradient(135deg, #1a3a52 0%, #2d5f7f 100%);\n  border-radius: 8px;\n  box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n  margin: 0 -15px;\n\">\n    <h1 style=\"\n    margin: 0;\n    font-size: 40px;\n    font-weight: bold;\n    color: #ffffff;\n    letter-spacing: 1px;\n  \">\n        Temperature & Humidity Monitor\n    </h1>\n    <p style=\"\n    margin: 10px 0 0 0;\n    font-size: 16px;\n    color: #a0c4d4;\n    font-weight: 300;\n  \">\n        with Dew Point Analysis & Telegram Alerts\n    </p>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1210,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa99db46e03eeb47",
+        "type": "link out",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "e5609b80b0a0a6f5"
+        ],
+        "x": 1695,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "334761ee0e541958",
+        "type": "function",
+        "z": "2d884c84e1fa7c76",
+        "g": "41750d5b843b552b",
+        "name": "send telegram",
+        "func": "// Get the object with temperature, humidity, and calculated metrics\nvar obj = msg.payload;\n\n// Create the message text\nvar text = `📊 *ENVIRONMENTAL METRICS*\n\n🌡️ Temperature: ${obj.temperature}°C\n💧 Humidity: ${obj.humidity}%\n❄️ Dew Point: ${obj.dewPoint}°C\n📊 Absolute Humidity: ${obj.absoluteHumidity} g/m³\n📉 Depression: ${obj.dewPointDepression}°C\n📍 Location: ${obj.location}\n\n⏰ ${obj.timestamp}`;\n\n// Create proper format for Telegram\nmsg.payload = {\n    content: text,\n    chatId: 7372731857,\n    type: \"message\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 1960,
+        "wires": [
+            [
+                "aa99db46e03eeb47"
+            ]
+        ]
+    },
+    {
+        "id": "58531b960f20fdf6",
+        "type": "change",
+        "z": "2d884c84e1fa7c76",
+        "g": "a52698436b854af4",
+        "name": "Format Telegram",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "7372731857",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "x": 1490,
+        "y": 1180,
+        "wires": [
+            [
+                "d3af231fb7047b4a",
+                "31b672ddd1b01e81"
+            ]
+        ]
+    },
+    {
+        "id": "c78c22a0a1fa2ab5",
+        "type": "ui_group",
+        "name": "Ravi's Data",
+        "tab": "9b4ec2821518bbc5",
+        "order": 3,
+        "disp": false,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e058b1e9d018a77f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.f4.htw-berlin.de",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2b985b037cf3993c",
+        "type": "ui_group",
+        "name": "All data",
+        "tab": "9b4ec2821518bbc5",
+        "order": 2,
+        "disp": false,
+        "width": 17,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bfa9e7d93e98130d",
+        "type": "mqtt-broker",
+        "name": "localhost",
+        "broker": "localhost:1883",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "28406a6f6bdd49a2",
+        "type": "telegram bot",
+        "botname": "new bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "9b4ec2821518bbc5",
+        "type": "ui_tab",
+        "name": "Dashboard ",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false,
+        "info": "`Temp & Humidity Monitor with Dew Point Analysis & Telegram Alerts`````"
+    },
+    {
+        "id": "b7be716c78b56ca1",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-string": "1.0.0",
+            "node-red-contrib-telegrambot": "17.0.3"
+        }
+    }
+]

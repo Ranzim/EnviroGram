@@ -5,53 +5,42 @@ This folder contains the official Node-RED flow configuration for the IoT Enviro
 ## Node-RED Step-by-Step Flow
 
 ### 1. MQTT Climate Streams (flow1)
-This flow is responsible for subscribing to the MQTT topics and routing data to the dashboard elements.
+How it works: Subscribes to MQTT topics from the ESP32 and routes live data to dashboard gauges and historical charts.
 
 ![MQTT Climate Streams](../Documentation/images/flow1.png)
 
-- **Subscribers:** Listens to `ProIT_IoT/Ravi/temp`, `ProIT_IoT/Ravi/humi`, and shared topics `ProIT_IoT/+/temp`, `ProIT_IoT/+/humi`.
-- **Visualization:** Data is sent directly to "Local Temperature" gauge, "Local Humidity" gauge, and historical line charts for the shared ProITD data.
-
 ### 2. Local Data Publication (flow2)
-A dedicated flow for publishing local sensor readings to the MQTT broker.
+How it works: Relays local sensor data between brokers to ensure readings are reachable by both the dashboard and external subscribers.
 
 ![Publish Local Data](../Documentation/images/flow2.png)
 
-- **Purpose:** Ensures that temperature and humidity readings from the local ESP32 are available on the network for other subscribers and processing nodes.
+### 3. Telegram Alert Base (Send Flow)
+How it works: A centralized integration flow that connects all alert logic to the Telegram Bot API.
 
-### 3. Telegram Send Flow
-The integration point for sending automated alerts to the Telegram bot.
+![Telegram Send Flow](../Documentation/images/telegrams%20send%20bot.png)
 
-![Telegram Send Flow](../Documentation/images/telegrams send bot.png)
+### 4. Temperature Alert Logic (Temp Alert Flow)
+How it works: Monitors temperature thresholds (High > 10°C, Low < 5°C) and generates formatted alerts using state-management to prevent message spam.
 
-- **Components:** Uses a specialized Telegram sender node configured with the Bot Token and Chat ID.
-- **Trigger:** Activated by various alert flows (Temperature, Humidity, Environmental Analysis).
-
-### 4. Push Notification Alerts
-The end result of the alert system as seen by the user.
-
-![Push Alerts](../Documentation/images/temp&humi alert.png)
-
-- **Features:** Real-time mobile notifications for high/low thresholds.
-- **Example:** Screenshot shows typical "High temperature alert!" and "High humidity alert!" messages with current values and timestamps.
+![Temperature Alert Flow](../Documentation/images/Temprature-alert-flow.png)
 
 ### 5. Humidity Alert Logic (Humi Alert Flow)
-Detailed logic for monitoring humidity levels and triggering alerts.
+How it works: Similar to temperature monitoring, this triggers alerts for humidity violations (High > 20%, Low < 10%).
 
 ![Humidity Alert Flow](../Documentation/images/humi-alert%20%20flow.png)
 
-- **Process:** Checks the incoming humidity range. If it exceeds 42% or falls below 30%, it generates a formatted message, sets the alarm state, and passes the message to the Telegram sender.
-
 ### 6. Environmental Analysis (Environmental Flow)
-Advanced processing flow for calculating complex environmental metrics.
+How it works: Combines temperature and humidity data to calculate advanced metrics like Dew Point, Absolute Humidity, and Saturation Depression.
 
 ![Environmental Analysis](../Documentation/images/Environmenet%20analysis.png)
 
-- **Functionality:** Tags incoming temperature and humidity data, combines them, and uses a function node to calculate the Dew Point using the Magnus-Tetens formula.
-- **Output:** Passes the enriched data to a template for message formatting.
+### 7. Real-time Push Notifications (Alert Result)
+How it works: The end-user experience where instant alerts appear on the mobile device from the Telegram bot.
 
-### 7. Comprehensive Telegram Report
-The final output of the Environmental Analysis flow.
+![Push Alerts](../Documentation/images/temp&humi%20alert.png)
+
+### 8. Comprehensive Analysis Report
+How it works: Sends a detailed "ENVIRONMENTAL METRICS" report to Telegram, including all calculated values and a precise timestamp.
 
 ![Environmental Report](../Documentation/images/environmenet%20nalayse%20alert.png)
 
