@@ -10,7 +10,7 @@ IoT Project winter semester 2025/26
 
 ## Project Overview
 
-This project implements a comprehensive IoT environmental monitoring system that measures temperature and humidity in real-time using a DHT22 sensor connected to an ESP32 microcontroller. The system calculates dew point using the Magnus-Tetens formula and sends automated alerts via Telegram when environmental thresholds are exceeded. All data is visualized through a Node-RED dashboard running on a Raspberry Pi.
+This project implements a comprehensive IoT environmental monitoring system that measures temperature and humidity in real-time using a DHT22 sensor and ESP32. It calculates advanced metrics like **Dew Point**, **Absolute Humidity**, and **Saturation Depression** via Node-RED, providing automated Telegram alerts and a live glassmorphism dashboard on the Raspberry Pi.
 
 ![System Dashboard](Documentation/images/dashboard.png)
 
@@ -25,11 +25,10 @@ This project implements a comprehensive IoT environmental monitoring system that
 * **Power Supply:** USB 5V
 
 ### Software
-* **Node-Red**
-   * Telegram Nodes (node-red-contrib-telegrambot)
-   * MQTT Nodes
-   * Dashboard Nodes
-   * Function Nodes (Dew Point Calculation)
+* **Node-RED Ecosystem**
+   * **Telegram Integration:** `telegram-in`, `telegram-out`, `telegram-payload-switch`
+   * **Dashboard UI:** `ui_gauge`, `ui_chart` (Line Chart), `ui_template` (Glassmorphism)
+   * **MQTT & Logic:** `mqtt-in`, `mqtt-out`, `function`, `switch`, `change`, `link-in`, `link-out`, `string`, `trigger`, `delay`
 * **Mosquitto MQTT Broker** (Local installation on Raspberry Pi)
 
 ---
@@ -40,7 +39,6 @@ This project implements a comprehensive IoT environmental monitoring system that
 .
 ├── Documentation/
 │   ├── images/                 # Project screenshots and diagrams
-│   ├── presentation/           # Presentation slides
 │   └── README.md               # Documentation overview
 ├── Hardware/
 │   ├── ESP32/                  # Hardware docs and wiring
@@ -81,12 +79,14 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 ```
 
 **Data Flow:**
-1. ESP32 reads temperature and humidity from DHT22 every 5 seconds
-2. Data is published to MQTT topics on Raspberry Pi
-3. Node-RED subscribes to MQTT topics and processes data
-4. Dew point is calculated using Magnus-Tetens formula
-5. Dashboard displays real-time data with charts and gauges
-6. When thresholds are exceeded, Telegram alerts are sent
+1. **Sensing:** ESP32 reads temperature and humidity from DHT22 every 30 seconds.
+2. **Transmission:** Data is published to Mosquitto MQTT topics on the Raspberry Pi.
+3. **Ingestion:** Node-RED subscribes to MQTT streams and routes data to UI and processing nodes.
+4. **Analysis:** Calculates **Dew Point**, **Absolute Humidity**, and **Saturation Depression**.
+5. **Visualization:** Dashboard displays live gauges, historical trends, and complex environmental metrics.
+6. **Reporting:** 
+   - ⚡ **Immediate:** Separate alerts sent to Telegram as soon as temp/humi thresholds are breached.
+   - 📅 **Daily:** A consolidated "Environmental Analysis" report sent once per day.
 
 
 ---
@@ -94,24 +94,24 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 ## Key Features
 
 ✅ **Real-time Environmental Monitoring**
-   - Temperature measurement (°C)
-   - Humidity measurement (%)
-   - Automatic dew point calculation
+   - Precise Temperature & Humidity measurement
+   - Automated **Dew Point** calculation (Magnus-Tetens)
+   - Real-time **Absolute Humidity** & **Saturation Depression** monitoring
 
-✅ **Telegram Alert System**
-   - Instant notifications when thresholds exceeded
-   - Bot command interface (/start, /status, /help)
- 
+✅ **Smart Alerting System**
+   - 🌡️ **Immediate Temp Alerts:** High (>25°C) or Low (<10°C) notifications.
+   - 💧 **Immediate Humi Alerts:** High (>65%) or Low (<30%) notifications.
+   - 📊 **Scheduled Summary:** Detailed "Environmental Analysis" report delivered **once per day** to prevent spam.
+   - **Bot Command Suite:** Control your system via Telegram (/start, /status, /help).
 
 ✅ **Interactive Dashboard**
-   - Live data visualization with gauges
-   - Historical charts showing trends
-   - User-friendly Node-Red_UI interface
+   - Modern Glassmorphism UI (using HTML/CSS templates).
+   - Live visual gauges and historical data charting.
+   - Mobile-responsive dashboard accessible via the local network.
 
-✅ **Smart Alert Logic**
-   - -Smart threshold system prevents alert spam
-   - Separate high/low thresholds
-   - Configurable temperature and humidity limits
+✅ **Advanced Logic & Management**
+   - Smart threshold state-management to prevent repetitive notification spam.
+   - Fully configurable alert limits for both Temperature and Humidity.
 
 ✅ **Self-Hosted Infrastructure**
    - Local MQTT broker on Raspberry Pi
