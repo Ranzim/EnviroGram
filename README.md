@@ -41,21 +41,21 @@ This project implements a comprehensive IoT environmental monitoring system that
 ├── Documentation/
 │   ├── images/                 # Project screenshots and diagrams
 │   ├── presentation/           # Presentation slides
-│   ├── README.md               # Documentation overview
-│   ├── setup_guide.md          # Complete installation guide
-│   └── dew_point_info.md       # Dew point calculation explained
+│   └── README.md               # Documentation overview
 ├── Hardware/
 │   ├── ESP32/                  # Hardware docs and wiring
 │   └── README.md               # Hardware overview
-├── uPython/                    # MicroPython boot and library files
+├── uPython/
+│   ├── boot.py                 # Main ESP32 logic
+│   ├── umqttsimple.py          # MQTT library for MicroPython
+│   └── README.md               # firmware overview
 ├── Node-RED/
 │   ├── README.md               # Node-RED overview
+│   ├── function-nodes/         # Custom JavaScript logic
+│   ├── template-nodes/         # Dashboard UI HTML
 │   └── telegram_alert_flow.json # Complete Node-RED flow
 ├── RaspberryPi/
-│   ├── README.md               # Raspberry Pi overview
-│   └── mqtt_setup.md           # Mosquitto broker configuration
-├── Tests/
-│   └── README.md               # Test procedures
+│   └── README.md               # Raspberry Pi overview & Setup
 └── README.md
 ```
 
@@ -67,8 +67,7 @@ This project implements a comprehensive IoT environmental monitoring system that
 *   📂 [**Hardware**](Hardware/README.md) - Wiring and physical setup.
 *   📂 [**uPython**](uPython/README.md) - ESP32 MicroPython firmware.
 *   📂 [**Node-RED**](Node-RED/README.md) - Flows and dashboard configuration.
-*   📂 [**RaspberryPi**](RaspberryPi/README.md) - Server setup and configuration.
-*   📂 [**Tests**](Tests/README.md) - Testing and verification.
+*   📂 [**RaspberryPi**](RaspberryPi/README.md) - Server setup, MQTT installation, and SSH guides.
 
 ---
 
