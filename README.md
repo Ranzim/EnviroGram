@@ -120,24 +120,37 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 
 ---
 
-## ESP32 Firmware & Hardware
+## ESP32 Firmware
 
 The ESP32 microcontroller reads temperature and humidity data from the DHT22 sensor and publishes the values to the MQTT broker running on the Raspberry Pi.
 
 **Development Environment:** Thonny IDE with MicroPython
 
-### 🔌 Hardware Connection
+### Hardware Connection
 
-The DHT22 sensor is connected to the ESP32 to provide digital climate readings.
+**DHT22 Wiring to ESP32:**
 
-**Wiring Diagram:**
-- **DHT22 VCC** (Pin 1)  → ESP32 **3V3**
-- **DHT22 DATA** (Pin 2) → ESP32 **GPIO 2**
-- **DHT22 GND** (Pin 3)  → ESP32 **GND**
+```
+DHT22 Pin Layout:
+┌─────────────┐
+│  1  2  3  4 │
+└─┬──┬──┬──┬──┘
+  │  │  │  └── Pin 4: Not Connected
+  │  │  └───── Pin 3: GND
+  │  └──────── Pin 2: DATA
+  └─────────── Pin 1: VCC (3.3V)
 
-### 📝 Sensor Reading Logic
-The system uses the standard `dht` library to interface with the sensor on GPIO 2.
+Connections:
+- DHT22 Pin 1 (VCC)  → ESP32 3V3
+- DHT22 Pin 2 (DATA) → ESP32 GPIO 2
+- DHT22 Pin 3 (GND)  → ESP32 GND
+- DHT22 Pin 4        → Not connected
 
+```
+
+### Sensor Reading
+
+The following lines of code are required to read the sensor values:
 ```python
 import dht
 from machine import Pin
@@ -148,18 +161,22 @@ mytemp = sensor.temperature()
 myhumi = sensor.humidity()
 ```
 
-### 🌐 WiFi Configuration
+### WiFi Connection
+
+A WiFi connection is established using:
 ```python
 import network
 
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
-sta_if.connect('WIFI_SSID', 'WIFI_PASSWORD')
+sta_if.connect('Rechnernetze', 'rnFIW625')
 ```
 
-### 📡 MQTT Integration
-We use the `umqttsimple` library for lightweight communication.
+### MQTT Connection
 
+And the connection with the MQTT broker:
+
+#### Import MQTT Library
 ```python
 from umqttsimple import MQTTClient
 ```
@@ -189,8 +206,9 @@ client.publish(MQTT_TOPIC_TEMP, str(mytemp))
 client.publish(MQTT_TOPIC_HUMI, str(myhumi))
 ```
 
-### 🔄 Main Execution Loop
-The system reads and publishes sensor data every 30 seconds.
+### Main Loop
+
+The system continuously reads sensor data and publishes every 30 seconds:
 ```python
 while True:
     sensor.measure()
