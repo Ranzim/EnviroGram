@@ -121,54 +121,24 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 
 ---
 
-## ESP32 Firmware
+## ESP32 Firmware & Hardware
 
-The ESP32 microcontroller reads temperature and humidity data from the DHT22 sensor  and publishes the values to the MQTT broker running on the Raspberry Pi.
-
-**Development Environment:** Thonny IDE with MicroPython
-
-### Hardware Connection
-
-**DHT22 Wiring to ESP32:**
-
-```
-DHT22 Pin Layout:
-┌─────────────┐
-│  1  2  3  4 │
-└─┬──┬──┬──┬──┘
-  │  │  │  └── Pin 4: Not Connected
-  │  │  └───── Pin 3: GND
-  │  └──────── Pin 2: DATA
-  └─────────── Pin 1: VCC (3.3V)
-
-Connections:
-- DHT22 Pin 1 (VCC)  → ESP32 3V3
-- DHT22 Pin 2 (DATA) → ESP32 GPIO 4
-- DHT22 Pin 3 (GND)  → ESP32 GND
-- DHT22 Pin 4        → Not connected
-
-```
-
-
-## ESP32 Firmware
-
-The ESP32 microcontroller reads temperature and humidity from the DHT22 sensor and publishes to MQTT.
+The ESP32 microcontroller reads temperature and humidity data from the DHT22 sensor and publishes the values to the MQTT broker running on the Raspberry Pi.
 
 **Development Environment:** Thonny IDE with MicroPython
 
-### Hardware Connection
+### 🔌 Hardware Connection
 
-The DHT22 sensor is connected to **GPIO pin 2**.
-```
-Connections:
-- DHT22 VCC  → ESP32 3V3
-- DHT22 DATA → ESP32 GPIO 2
-- DHT22 GND  → ESP32 GND
-```
+The DHT22 sensor is connected to the ESP32 to provide digital climate readings.
 
-### Sensor Reading
+**Wiring Diagram:**
+- **DHT22 VCC** (Pin 1)  → ESP32 **3V3**
+- **DHT22 DATA** (Pin 2) → ESP32 **GPIO 2**
+- **DHT22 GND** (Pin 3)  → ESP32 **GND**
 
-The following lines of code are required to read the sensor values:
+### 📝 Sensor Reading Logic
+The system uses the standard `dht` library to interface with the sensor on GPIO 2.
+
 ```python
 import dht
 from machine import Pin
@@ -179,22 +149,18 @@ mytemp = sensor.temperature()
 myhumi = sensor.humidity()
 ```
 
-### WiFi Connection
-
-A WiFi connection is established using:
+### 🌐 WiFi Configuration
 ```python
 import network
 
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
-sta_if.connect('Rechnernetze', 'rnFIW625')
+sta_if.connect('WIFI_SSID', 'WIFI_PASSWORD')
 ```
 
-### MQTT Connection
+### 📡 MQTT Integration
+We use the `umqttsimple` library for lightweight communication.
 
-And the connection with the MQTT broker:
-
-#### Import MQTT Library
 ```python
 from umqttsimple import MQTTClient
 ```
@@ -224,9 +190,8 @@ client.publish(MQTT_TOPIC_TEMP, str(mytemp))
 client.publish(MQTT_TOPIC_HUMI, str(myhumi))
 ```
 
-### Main Loop
-
-The system continuously reads sensor data and publishes every 30 seconds:
+### 🔄 Main Execution Loop
+The system reads and publishes sensor data every 30 seconds.
 ```python
 while True:
     sensor.measure()
@@ -259,23 +224,23 @@ The system logic is implemented in Node-RED through a series of interconnected f
 
 ### Step 4: Temperature Alert Logic (Temp Alert Flow)
 ![Temperature Alert Flow](Documentation/images/Temprature-alert-flow.png)
-**How it works:** Monitors temperature thresholds (High > 10°C, Low < 5°C) and generates formatted alerts to Telegram.
+**How it works:** Monitors temperature thresholds (High > 25°C, Low < 10°C). Alerts are sent **separately and immediately** to Telegram when a threshold is breached.
 
 ### Step 5: Humidity Alert Logic (Humi Alert Flow)
 ![Humidity Alert Flow](Documentation/images/humi-alert%20%20flow.png)
-**How it works:** Monitors humidity thresholds (High > 20%, Low < 10%) and triggers automated alerts to Telegram.
+**How it works:** Monitors humidity thresholds (High > 65%, Low < 30%). Alerts are sent **separately and immediately** as independent messages.
 
-### Step 6: Environmental Analysis (Environmental Flow)
-![Environmental Analysis](Documentation/images/Environmenet%20analysis.png)
-**How it works:** Combines temperature and humidity data to calculate advanced metrics like Dew Point, Absolute Humidity, and Saturation Depression.
+### Step 6: Environmental Analyser (Daily Report Flow)
+![Environmental Analysis](Documentation/images/environmental%20analys%20flow-wtih%20delay%20one%20message%20per%20day.png)
+**How it works:** Calculates advanced metrics. To prevent clutter, this comprehensive report is scheduled with a delay to be sent **only once per day**.
 
 ### Step 7: Real-time Push Notifications (Alert Result)
 ![Push Alerts](Documentation/images/temp&humi%20alert.png)
 **How it works:** The final user experience where instant alerts appear on the mobile device via the Telegram bot.
 
-### Step 8: Comprehensive Environmental Metrics (Report)
+### Step 8: Comprehensive Environmental Report (Daily)
 ![Environmental Report](Documentation/images/environmenet%20nalayse%20alert.png)
-**How it works:** Sends a detailed snapshot of all calculated environmental metrics to Telegram with a precise timestamp.
+**How it works:** A detailed snapshot of all calculated metrics delivered once per day to provide a daily environmental summary.
 
 
 ## Acknowledgments

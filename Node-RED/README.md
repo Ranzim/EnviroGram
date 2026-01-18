@@ -20,27 +20,27 @@ How it works: A centralized integration flow that connects all alert logic to th
 ![Telegram Send Flow](../Documentation/images/telegrams%20send%20bot.png)
 
 ### 4. Temperature Alert Logic (Temp Alert Flow)
-How it works: Monitors temperature thresholds (High > 10°C, Low < 5°C) and generates formatted alerts using state-management to prevent message spam.
+How it works: Monitors temperature thresholds (High > 25°C, Low < 10°C). Alerts are sent **separately and immediately** to Telegram as soon as a threshold is exceeded.
 
 ![Temperature Alert Flow](../Documentation/images/Temprature-alert-flow.png)
 
 ### 5. Humidity Alert Logic (Humi Alert Flow)
-How it works: Similar to temperature monitoring, this triggers alerts for humidity violations (High > 20%, Low < 10%).
+How it works: Monitors humidity thresholds (High > 65%, Low < 30%). Alerts are sent **separately and immediately** to Telegram when these conditions are met.
 
 ![Humidity Alert Flow](../Documentation/images/humi-alert%20%20flow.png)
 
-### 6. Environmental Analysis (Environmental Flow)
-How it works: Combines temperature and humidity data to calculate advanced metrics like Dew Point, Absolute Humidity, and Saturation Depression.
+### 6. Environmental Analyser (Daily Report Flow)
+How it works: Advanced analyzer that calculates Dew Point, Absolute Humidity, and Depression. To keep the notification feed clean, this detailed report is scheduled to be sent **only once per day**.
 
-![Environmental Analysis](../Documentation/images/Environmenet%20analysis.png)
+![Environmental Analysis](../Documentation/images/environmental%20analys%20flow-wtih%20delay%20one%20message%20per%20day.png)
 
 ### 7. Real-time Push Notifications (Alert Result)
 How it works: The end-user experience where instant alerts appear on the mobile device from the Telegram bot.
 
 ![Push Alerts](../Documentation/images/temp&humi%20alert.png)
 
-### 8. Comprehensive Analysis Report
-How it works: Sends a detailed "ENVIRONMENTAL METRICS" report to Telegram, including all calculated values and a precise timestamp.
+### 8. Comprehensive Daily Analysis Report
+How it works: The final summary report delivered once per day. It includes all calculated environmental metrics and precise location metadata.
 
 ![Environmental Report](../Documentation/images/environmenet%20nalayse%20alert.png)
 

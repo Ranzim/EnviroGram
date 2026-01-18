@@ -1,0 +1,281 @@
+<div style="
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background: rgba(30, 60, 90, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 10px;
+    overflow: hidden;
+">
+    <!-- Header with Location -->
+    <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+        min-height: 30px;
+    ">
+        <div style="
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #a0bae0;
+        ">
+            <span style="font-size: 18px; margin-right: 8px;">💧</span>Environmental Analysis
+        </div>
+        <div style="
+            font-size: 9px;
+            color: #80b0d0;
+            font-weight: 500;
+        ">
+            📍 {{msg.payload.location}}
+        </div>
+    </div>
+
+    <!-- Main Content Grid - Flexible Height -->
+    <div style="
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 10px;
+        flex: 1;
+        min-height: 0;
+    ">
+        <!-- Temperature Card -->
+        <div style="
+            background: rgba(255, 107, 107, 0.15);
+            border: 1px solid rgba(255, 107, 107, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+        ">
+            <div style="
+                font-size: 7px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #ff9999;
+                margin-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            ">
+                <span style="font-size: 16px; margin-right: 5px;">🌡️</span>Temperature
+            </div>
+            <div style="
+                font-size: clamp(20px, 4vw, 36px);
+                font-weight: bold;
+                color: #ff6b6b;
+                line-height: 1;
+                overflow: hidden;
+            ">
+                {{msg.payload.temperature}}<span style="font-size: clamp(12px, 2vw, 20px);">°C</span>
+            </div>
+        </div>
+
+        <!-- Humidity Card -->
+        <div style="
+            background: rgba(78, 205, 196, 0.15);
+            border: 1px solid rgba(78, 205, 196, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+        ">
+            <div style="
+                font-size: 7px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #80d8d0;
+                margin-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            ">
+                <span style="font-size: 16px; margin-right: 5px;">💧</span>Humidity
+            </div>
+            <div style="
+                font-size: clamp(20px, 4vw, 36px);
+                font-weight: bold;
+                color: #4ecdc4;
+                line-height: 1;
+                overflow: hidden;
+            ">
+                {{msg.payload.humidity}}<span style="font-size: clamp(12px, 2vw, 20px);">%</span>
+            </div>
+        </div>
+
+        <!-- Dew Point Card -->
+        <div style="
+            background: rgba(96, 165, 250, 0.15);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+        ">
+            <div style="
+                font-size: 7px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #90caf9;
+                margin-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            ">
+                <span style="font-size: 16px; margin-right: 5px;">❄️</span>Dew Point
+            </div>
+            <div style="
+                font-size: clamp(20px, 4vw, 36px);
+                font-weight: bold;
+                color: #60a5fa;
+                line-height: 1;
+                overflow: hidden;
+            ">
+                {{msg.payload.dewPoint}}<span style="font-size: clamp(12px, 2vw, 20px);">°C</span>
+            </div>
+        </div>
+
+        <!-- Absolute Humidity Card -->
+        <div style="
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+        ">
+            <div style="
+                font-size: 7px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #d8b4fe;
+                margin-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            ">
+                <span style="font-size: 16px; margin-right: 5px;">💨</span>Abs. Humidity
+            </div>
+            <div style="
+                font-size: clamp(20px, 4vw, 36px);
+                font-weight: bold;
+                color: #a78bfa;
+                line-height: 1;
+                overflow: hidden;
+            ">
+                {{msg.payload.absoluteHumidity}}<span style="font-size: clamp(10px, 1.5vw, 16px);">g/m³</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Depression Card (Full Width) -->
+    <div style="
+        background: rgba(251, 191, 36, 0.15);
+        border: 1px solid rgba(251, 191, 36, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 12px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    ">
+        <div style="
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #fcd34d;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        ">
+            <span style="font-size: 16px; margin-right: 5px;">🌡️</span>Depression (Saturation Distance)
+        </div>
+        <div style="
+            font-size: clamp(20px, 4vw, 36px);
+            font-weight: bold;
+            color: #fbbf24;
+            line-height: 1;
+        ">
+            {{msg.payload.dewPointDepression}}<span style="font-size: clamp(12px, 2vw, 20px);">°C</span>
+        </div>
+    </div>
+
+    <!-- Status Bar with Timestamp -->
+    <div style="
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-shrink: 0;
+    ">
+        <!-- Status -->
+        <div style="
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: clamp(8px, 2vw, 11px);
+            font-weight: 600;
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">
+            <span ng-if="msg.payload.dewPoint < 0">❄️ Very Dry</span>
+            <span ng-if="msg.payload.dewPoint >= 0 && msg.payload.dewPoint < 10">🌤️ Dry</span>
+            <span ng-if="msg.payload.dewPoint >= 10 && msg.payload.dewPoint < 15">😊 Comfortable</span>
+            <span ng-if="msg.payload.dewPoint >= 15 && msg.payload.dewPoint < 20">💦 Humid</span>
+            <span ng-if="msg.payload.dewPoint >= 20">🌧️ Very Humid</span>
+        </div>
+
+        <!-- Last Update Timestamp -->
+        <div style="
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: clamp(7px, 1.5vw, 9px);
+            color: #90a8c0;
+            font-weight: 500;
+            min-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">
+            🕐 Last Update: {{msg.payload.timestamp}}
+        </div>
+    </div>
+</div>
