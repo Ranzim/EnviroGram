@@ -21,7 +21,7 @@ This project implements a comprehensive IoT environmental monitoring system that
 ### Hardware
 * **Microcontroller:** ESP32 Development Board
 * **Sensor:** DHT22 Temperature & Humidity Sensor
-* **Processing Unit:** Raspberry Pi 3
+* **Processing Unit:** Raspberry Pi 
 * **Power Supply:** USB 5V
 
 ### Software
@@ -267,5 +267,3 @@ The system logic is implemented in Node-RED through a series of interconnected f
 - **Semester:** Winter Semester 2025/26
 
 ---
-
-
