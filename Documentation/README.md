@@ -3,7 +3,7 @@ This folder contains the documentation for the IoT Environmental Monitoring syst
 
 ## Contents
 - `images/`: Step-by-step Node-RED flows and system screenshots.
-- `presentation/`: Project presentation materials.
+- `Reports/`: Official project reports and PDF documentation.
 - [Setup Guide](setup_guide.md) (coming soon)
 - [Dew Point Info](dew_point_info.md) (coming soon)
 

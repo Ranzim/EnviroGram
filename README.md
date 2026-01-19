@@ -39,6 +39,7 @@ This project implements a comprehensive IoT environmental monitoring system that
 .
 ├── Documentation/
 │   ├── images/                 # Project screenshots and diagrams
+│   ├── Reports/                # PDF project reports and documentation
 │   └── README.md               # Documentation overview
 ├── Hardware/
 │   ├── ESP32/                  # Hardware docs and wiring
