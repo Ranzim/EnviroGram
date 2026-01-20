@@ -26,9 +26,9 @@ This project implements a comprehensive IoT environmental monitoring system that
 
 ### Software
 * **Node-RED Ecosystem**
-   * **Telegram Integration:** `telegram-in`, `telegram-out`, `telegram-payload-switch`
+   * **Telegram Integration:** `telegram-in`, 
    * **Dashboard UI:** `ui_gauge`, `ui_chart` (Line Chart), `ui_template` (Glassmorphism)
-   * **MQTT & Logic:** `mqtt-in`, `mqtt-out`, `function`, `switch`, `change`, `link-in`, `link-out`, `string`, `trigger`, `delay`
+   * **MQTT & Logic:** `mqtt-in`, `mqtt-out`, `function`, `switch`, `change`, `link-in`, `link-out`, `string`, `delay`
 * **Mosquitto MQTT Broker** (Local installation on Raspberry Pi)
 
 ---
