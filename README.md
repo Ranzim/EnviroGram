@@ -160,11 +160,6 @@ return msg;
    - Automated **Dew Point** calculation (Magnus-Tetens)
    - Real-time **Absolute Humidity** & **Saturation Depression** monitoring
 
-✅ **Smart Alerting System**
-   - **Immediate Temp Alerts:** High (>25°C) or Low (<10°C) notifications.
-   - **Immediate Humi Alerts:** High (>65%) or Low (<30%) notifications.
-   - **Scheduled Summary:** Detailed "Environmental Analysis" report delivered **once per day** to prevent spam.
-
 ---
 
 
