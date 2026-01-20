@@ -1,6 +1,6 @@
 # ProIT_WS2526_IoT_Ravi_FinalProject
 
-## IoT-Based Temperature, Humidity & Dew Point Monitoring and Alert System
+## IoT-Based Temperature, Humidity & environmental Monitoring and Alert System
 
 IoT Project winter semester 2025/26
 
