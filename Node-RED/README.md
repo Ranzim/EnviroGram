@@ -52,3 +52,13 @@ How it works: The final summary report delivered once per day. It includes all c
   - 📉 **Depression**
   - 📍 **Location Info**
 - **Timestamping:** Every report includes a precise timestamp of the analysis.
+
+---
+
+## Environmental Metrics & Formulas
+
+The logic for these calculations is found in `Node-RED/function-nodes/dew-point-calculation.js`.
+
+- **Dew Point:** Uses the Magnus-Tetens approximation.
+- **Absolute Humidity:** Calculated in $g/m^3$ using the saturation vapor pressure.
+- **Depression:** Simple difference between Temperature and Dew Point ($T - T_d$).

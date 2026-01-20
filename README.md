@@ -92,6 +92,74 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 
 ---
 
+## Environmental Metrics & Formulas
+
+To provide a deeper understanding of the environment, the system calculates several advanced metrics using the raw data from the DHT22 sensor:
+
+### 1. Dew Point ($T_d$)
+**Description:** The Dew Point is the temperature to which air must be cooled to become saturated with water vapor. 
+*   **Why it matters:** It is a much more accurate measure of how "humid" it feels than Relative Humidity. While Relative Humidity changes as the temperature changes, the Dew Point stays constant unless moisture is added or removed from the air.
+*   **Interpretation:** 
+    *   **< 10°C:** Very dry and comfortable.
+    *   **10°C - 15°C:** Comfortable.
+    *   **15°C - 20°C:** Feels humid (sticky).
+    *   **> 24°C:** Extremely uncomfortable/oppressive.
+
+**Formula (Magnus-Tetens Approximation):**
+$$ \alpha(T, RH) = \frac{17.27 \times T}{237.7 + T} + \ln\left(\frac{RH}{100}\right) $$
+$$ T_d = \frac{237.7 \times \alpha}{17.27 - \alpha} $$
+
+### 2. Absolute Humidity ($AH$)
+**Description:** Absolute Humidity measures the actual weight of water vapor in a specific volume of air, regardless of the temperature. It is expressed in grams of moisture per cubic meter of air ($g/m^3$).
+*   **Why it matters:** Relative Humidity (%) can be misleading because warm air can "hold" more water than cold air. Absolute Humidity gives you the "true" amount of water present. This is crucial for applications like wood drying, document storage, or preventing mold.
+*   **Interpretation:** It helps track if moisture is actually entering a room (e.g., from a leak or open window) or if the humidity percentage is just changing because the heater turned on.
+
+**Formula:**
+$$ AH = \frac{6.112 \times \exp\left(\frac{17.67 \times T}{T + 243.5}\right) \times RH}{461.5 \times (T + 273.15)} $$
+
+### 3. Dew Point Depression ($D$) — *(also known as Saturation Depression)*
+**Description:** This is the difference between the current air temperature and the Dew Point.
+*   **Why it matters:** It tells you how close the air is to being "full" of water. 
+*   **Interpretation:**
+    *   **Near 0:** The air is nearly saturated. Expect fog, dew on windows, or high risk of mold on cold surfaces.
+    *   **Large Difference:** The air is dry and has a high capacity to absorb more moisture (high "evaporative potential").
+*   **Formula:** $D = T - T_d$
+
+---
+
+## Data Calculation Logic (Node-RED Implementation)
+
+The following JavaScript logic is used within a **Node-RED Function Node** to process the raw sensor data and calculate the metrics shown above:
+
+```javascript
+// Input: temperature (T) and relative humidity (RH)
+var T = msg.payload.temperature;
+var RH = msg.payload.humidity;
+
+// 1. Calculate Dew Point (Magnus-Tetens)
+var a = 17.27;
+var b = 237.7;
+var alpha = ((a * T) / (b + T)) + Math.log(RH / 100.0);
+var dewPoint = (b * alpha) / (a - alpha);
+
+// 2. Calculate Absolute Humidity (g/m³)
+var e = Math.exp((17.67 * T) / (T + 243.5));
+var absHumidity = (6.112 * e * RH) / (461.5 * (T + 273.15));
+
+// 3. Calculate Dew Point Depression
+var depression = T - dewPoint;
+
+// Output result
+msg.payload = {
+    dewPoint: dewPoint.toFixed(2),
+    absoluteHumidity: absHumidity.toFixed(2),
+    depression: depression.toFixed(2)
+};
+return msg;
+```
+
+---
+
 ## Key Features
 
 ✅ **Real-time Environmental Monitoring**
