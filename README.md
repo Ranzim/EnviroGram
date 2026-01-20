@@ -164,37 +164,9 @@ return msg;
    - **Immediate Temp Alerts:** High (>25°C) or Low (<10°C) notifications.
    - **Immediate Humi Alerts:** High (>65%) or Low (<30%) notifications.
    - **Scheduled Summary:** Detailed "Environmental Analysis" report delivered **once per day** to prevent spam.
-   - **Bot Command Suite:** Control your system via Telegram (/start, /status, /help).
 
 ---
 
-## ESP32 Firmware
-
-The ESP32 microcontroller reads temperature and humidity data from the DHT22 sensor and publishes the values to the MQTT broker running on the Raspberry Pi.
-
-**Development Environment:** Thonny IDE with MicroPython
-
-### Hardware Connection
-
-**DHT22 Wiring to ESP32:**
-
-```
-DHT22 Pin Layout:
-┌─────────────┐
-│  1  2  3  4 │
-└─┬──┬──┬──┬──┘
-  │  │  │  └── Pin 4: Not Connected
-  │  │  └───── Pin 3: GND
-  │  └──────── Pin 2: DATA
-  └─────────── Pin 1: VCC (3.3V)
-
-Connections:
-- DHT22 Pin 1 (VCC)  → ESP32 3V3
-- DHT22 Pin 2 (DATA) → ESP32 GPIO 2
-- DHT22 Pin 3 (GND)  → ESP32 GND
-- DHT22 Pin 4        → Not connected
-
-```
 
 ### Sensor Reading
 
