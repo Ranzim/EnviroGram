@@ -10,7 +10,7 @@ IoT Project winter semester 2025/26
 
 ## Project Overview
 
-This project implements a comprehensive IoT environmental monitoring system that measures temperature and humidity in real-time using a DHT22 sensor and ESP32. It calculates advanced metrics like **Dew Point**, **Absolute Humidity**, and **Saturation Depression** via Node-RED, providing automated Telegram alerts and a live glassmorphism dashboard on the Raspberry Pi.
+This project implements a comprehensive IoT environmental monitoring system that measures temperature and humidity in real-time using a DHT22 sensor and ESP32. It calculates advanced metrics like **Dew Point**, **Absolute Humidity**, and **Saturation Depression** via Node-RED, providing automated Telegram alerts.
 
 ![System Dashboard](Documentation/images/dashboard.png)
 
@@ -104,11 +104,6 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
    - **Immediate Humi Alerts:** High (>65%) or Low (<30%) notifications.
    - **Scheduled Summary:** Detailed "Environmental Analysis" report delivered **once per day** to prevent spam.
    - **Bot Command Suite:** Control your system via Telegram (/start, /status, /help).
-
-✅ **Interactive Dashboard**
-   - Glassmorphism UI (using HTML/CSS templates).
-   - Live visual gauges and historical data charting.
-   - Mobile-responsive dashboard accessible via the local network.
 
 ---
 
