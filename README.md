@@ -97,7 +97,7 @@ ESP32 + DHT22  →  MQTT  →  Raspberry Pi (Node-RED)  →  Telegram Bot
 To provide a deeper understanding of the environment, the system calculates several advanced metrics using the raw data from the DHT22 sensor:
 
 ### 1. Dew Point ($T_d$)
-**Description:** The Dew Point is the temperature to which air must be cooled to become saturated with water vapor. 
+The Dew Point is the temperature to which air must be cooled to become saturated with water vapor. 
 *   **Why it matters:** It is a much more accurate measure of how "humid" it feels than Relative Humidity. While Relative Humidity changes as the temperature changes, the Dew Point stays constant unless moisture is added or removed from the air.
 
 **Formula (Magnus-Tetens Approximation):**
@@ -105,14 +105,14 @@ $$ \alpha(T, RH) = \frac{17.27 \times T}{237.7 + T} + \ln\left(\frac{RH}{100}\ri
 $$ T_d = \frac{237.7 \times \alpha}{17.27 - \alpha} $$
 
 ### 2. Absolute Humidity ($AH$)
-**Description:** Absolute Humidity measures the actual weight of water vapor in a specific volume of air, regardless of the temperature. It is expressed in grams of moisture per cubic meter of air ($g/m^3$).
+ Absolute Humidity measures the actual weight of water vapor in a specific volume of air, regardless of the temperature. It is expressed in grams of moisture per cubic meter of air ($g/m^3$).
 *   **Why it matters:** Relative Humidity (%) can be misleading because warm air can "hold" more water than cold air. Absolute Humidity gives you the "true" amount of water present. This is crucial for applications like wood drying, document storage, or preventing mold.
 
 **Formula:**
 $$ AH = \frac{6.112 \times \exp\left(\frac{17.67 \times T}{T + 243.5}\right) \times RH}{461.5 \times (T + 273.15)} $$
 
 ### 3. Dew Point Depression ($D$) — *(also known as Saturation Depression)*
-**Description:** This is the difference between the current air temperature and the Dew Point.
+ This is the difference between the current air temperature and the Dew Point.
 *   **Why it matters:** It tells you how close the air is to being "full" of water. 
 *   **Interpretation:**
 
